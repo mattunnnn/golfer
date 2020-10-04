@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new
   end
   def create
-    @micropost = current_user.micropost.build(micropost_params)
+    @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       redirect_to micropost_path(@micropost), notice: "メッセージを投稿しました。"
     else
