@@ -18,6 +18,21 @@
               <figure class="image is-4by3">
                 <%= link_to micropost_path(micropost) do %>
                   <%= attachment_image_tag micropost, :image %>
+                <tr>
+                  <td>
+                <% if current_user.already_favorited?(micropost) %>
+                  <%= link_to micropost_favorites_path(micropost), method: :delete do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                  <%= micropost.favorites.count %>
+                <% else %>
+                  <%= link_to micropost_favorites_path(micropost), method: :post do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                  <%= micropost.favorites.count %>
+                <% end %>
+                  </td>
+                </tr>
                 <% end %>
               </figure>
             </div>
