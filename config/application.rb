@@ -30,5 +30,6 @@ module Golfer
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.time_zone = 'Tokyo'
+    config.assets.initialize_on_precompile = false
   end
 end
